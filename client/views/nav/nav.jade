@@ -1,0 +1,20 @@
+nav.navbar.navbar-default(ng-controller='NavCtrl')
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/') Game Swap
+    #navbar.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right(ng-hide='userName')
+        li.active: a(ui-sref='register'): i.fa.fa-users &nbsp; Register
+        li.active: a(ui-sref='login'): i.fa.fa-key &nbsp; Login
+      ul.nav.navbar-nav.navbar-right(ng-show='userName')
+        //- li.active: a(ui-sref='notes.new'): i.fa.fa-pencil &nbsp; New Note
+        //- li.active: a(ui-sref='notes.list'): i.fa.fa-list-alt &nbsp; List Notes
+        li.active: a(href='#', ng-click='logout()') {{userName}}
+      ul.nav.navbar-nav.navbar-left
+        li.active: a(ui-sref='home'): i.fa.fa-home &nbsp; Home
+   
