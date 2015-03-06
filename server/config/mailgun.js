@@ -1,3 +1,5 @@
+/* jshint quotmark: false */
+
 'use strict';
 
 var Mailgun = require('mailgun').Mailgun;
