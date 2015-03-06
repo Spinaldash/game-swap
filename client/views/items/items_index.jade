@@ -1,0 +1,8 @@
+h1 Items for Swap
+.container-fluid
+  .row
+    .col-xs-4.col-sm-3.col-md-2(ng-repeat='item in items')
+      .header {{item.name}}
+      a(ui-sref='items.show({itemId:item._id})')
+        img.img-thumbnail(ng-src='{{item.imageUrl}}')
+          

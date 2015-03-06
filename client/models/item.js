@@ -9,10 +9,11 @@ angular.module('game-swap')
       return $http.get('/users/' + $rootScope.userId);
     }
     function showItem(itemId) {
+      console.log('client models item ITEMID:', '/items/' + itemId);
       return $http.get('/items/' + itemId);
     }
     function showIndex() {
-      return $http.get('/items')
+      return $http.get('/items');
     }
-    return {create:create, showInventory:showInventory, showItem:showItem};
+    return {create:create, showInventory:showInventory, showItem:showItem, showIndex:showIndex};
   }]);
