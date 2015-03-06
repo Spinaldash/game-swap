@@ -21,7 +21,15 @@ angular.module('game-swap')
       return $http.post('/trades', {item1:item1, item2:item2});
     }
     function toggleCanSwap() {
-      return $http.post('/items/toggleSwap', $state.params.itemId);
+      return $http.post('/items/toggleSwap', {itemId: $state.params.itemId});
     }
-    return {create:create, showInventory:showInventory, showItem:showItem, showIndex:showIndex, trade:trade, getMySwaps:getMySwaps};
+    return {
+      create:create,
+      showInventory:showInventory,
+      showItem:showItem,
+      showIndex:showIndex,
+      getMySwaps:getMySwaps,
+      trade:trade,
+      toggleCanSwap:toggleCanSwap
+    };
   }]);

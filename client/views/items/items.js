@@ -11,6 +11,11 @@ angular.module('game-swap')
       Item.getMySwaps().then(function(response) {
         $scope.myItems = response.data;
       });
+      $scope.toggleCanSwap = function() {
+        Item.toggleCanSwap().then(function(response) {
+          $scope.item.canSwap = response.data;
+        });
+      };
       $scope.submit = function(proposedItem) {
         Item.trade(proposedItem, $state.params.itemId).then(function() {
           console.log('Trade created!');

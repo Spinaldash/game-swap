@@ -10,9 +10,10 @@ module.exports = [
 
   {method: 'post', path: '/items', config: require('../routes/items/create')},            // New Item
   {method: 'get', path: '/users/{userId}', config: require('../routes/items/inventory')}, // Show My Items
-  {method: 'get', path: '/items/swaps', config: require('../routes/items/swaps')}, // Show My Swappable Items
+  {method: 'get', path: '/items/swaps', config: require('../routes/items/swaps')},        // Show My Swappable Items
   {method: 'get', path: '/items', config: require('../routes/items/index')},              // Show other items availble for trade
   {method: 'get', path: '/items/{itemId}', config: require('../routes/items/show')},      // Show one item
+  {method: 'post', path: '/items/toggleSwap', config: require('../routes/items/toggleSwap')},      // Toggle Swappiness
 
   {method: 'post', path: '/trades', config: require('../routes/trades/create')}
 
