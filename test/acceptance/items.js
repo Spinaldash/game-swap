@@ -99,9 +99,24 @@ describe('items route', function() {
         }
       };
       server.inject(options, function(response) {
-        console.log('acceptance items RESPONSERESULT:', response.result);
         expect(response.result).to.be.ok;
         expect(response.result.item.name).to.equal('Tetris');
+        done();
+      });
+    });
+  });
+  describe('post /items/toggleSwap', function() {
+    it("should toggle canSwap", function(done) {
+      var options = {
+        method: 'post',
+        url:'/items/toggleSwap',
+        payload: {itemId:'0000000000000000000000a1'},
+        headers: {
+          cookie: cookie
+        }
+      };
+      server.inject(options, function(response) {
+        expect(response.result).to.be.not.ok;
         done();
       });
     });
