@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('game-swap')
-  .factory('Item', ['$http', '$rootScope', function($http, $rootScope){
+  .factory('Item', ['$http', '$state', '$rootScope', function($http, $state, $rootScope){
     function create(item) {
       return $http.post('/items', item);
     }
@@ -19,6 +19,9 @@ angular.module('game-swap')
     }
     function trade(item1, item2) {
       return $http.post('/trades', {item1:item1, item2:item2});
+    }
+    function toggleCanSwap() {
+      return $http.post('/items/toggleSwap', $state.params.itemId);
     }
     return {create:create, showInventory:showInventory, showItem:showItem, showIndex:showIndex, trade:trade, getMySwaps:getMySwaps};
   }]);
