@@ -12,12 +12,12 @@ angular.module('game-swap')
         $scope.myItems = response.data;
       });
       $scope.submit = function(proposedItem) {
-        Items.trade(proposedItem, $state.params.itemId).then(function() {
+        Item.trade(proposedItem, $state.params.itemId).then(function() {
           console.log('Trade created!');
         }, function() {
           console.log('Trade creation failure.');
         });
-      }
+      };
     }
 
     if($state.current.name === 'items.new') {

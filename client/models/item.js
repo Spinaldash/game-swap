@@ -15,10 +15,10 @@ angular.module('game-swap')
       return $http.get('/items');
     }
     function getMySwaps() {
-      return $http.get('/items/swaps')
+      return $http.get('/items/swaps');
     }
     function trade(item1, item2) {
       return $http.post('/trades', {item1:item1, item2:item2});
     }
-    return {create:create, showInventory:showInventory, showItem:showItem, showIndex:showIndex, trade:trade};
+    return {create:create, showInventory:showInventory, showItem:showItem, showIndex:showIndex, trade:trade, getMySwaps:getMySwaps};
   }]);
