@@ -99,8 +99,9 @@ describe('items route', function() {
         }
       };
       server.inject(options, function(response) {
+        console.log('acceptance items RESPONSERESULT:', response.result);
         expect(response.result).to.be.ok;
-        expect(response.result.name).to.equal('Tetris');
+        expect(response.result.item.name).to.equal('Tetris');
         done();
       });
     });

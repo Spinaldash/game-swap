@@ -8,17 +8,27 @@ angular.module('game-swap')
         $scope.item = response.data.item;
         $scope.userName = response.data.userName;
       });
+      Item.getMySwaps().then(function(response) {
+        $scope.myItems = response.data;
+      });
+      $scope.submit = function(proposedItem) {
+        Items.trade(proposedItem, $state.params.itemId).then(function() {
+          console.log('Trade created!');
+        }, function() {
+          console.log('Trade creation failure.');
+        });
+      }
     }
 
-    // if($state.current.name === 'items.new') {
-    $scope.submit = function(item){
-      Item.create(item).then(function(){
-        $state.go('items.inventory');
-      },function() {
-        console.log('Item Create Failed.');
-      });
-    };
-    // }
+    if($state.current.name === 'items.new') {
+      $scope.submit = function(item){
+        Item.create(item).then(function(){
+          $state.go('items.inventory');
+        },function() {
+          console.log('Item Create Failed.');
+        });
+      };
+    }
 
     if($state.current.name === 'items.index') {
       Item.showIndex().then(function(response) {
