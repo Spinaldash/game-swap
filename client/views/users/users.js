@@ -20,6 +20,7 @@ angular.module('game-swap')
       } else {
         User.login(user).then(function(response) {
           $rootScope.userName = response.data.userName;
+          $rootScope.userId = response.data.userId;
           $state.go('home');
         }, function() {
           user.userName = user.password = '';

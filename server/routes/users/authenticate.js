@@ -17,7 +17,7 @@ module.exports = {
         reply().code(400);
       }else{
         request.auth.session.set(user);
-        reply({userName:user.userName});
+        reply({userName:user.userName, userId:user._id});
       }
     });
   }

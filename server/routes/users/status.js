@@ -2,6 +2,7 @@
 
 module.exports = {
   handler: function(request, reply) {
-    reply({userName:request.auth.credentials.userName});
+    console.log(request.auth.credentials);
+    reply({userName:request.auth.credentials.userName, userId:request.auth.credentials._id});
   }
 };

@@ -1,0 +1,18 @@
+.row
+.col-xs-1
+.col-xs-6
+  h3.page-header New Item
+  form
+    .form-group
+      label(for='name') Name
+      input#name-input.form-control(type='text', name='name', autofocus=true, required, ng-model='item.name')
+      label(for='system') System
+      input#system-input.form-control(type='text', name='system', required, ng-model='item.system')
+      label(for='year') Year
+      input#year-input.form-control(type='number', name='year', required, ng-model='item.year')
+      label(for='imageUrl') Image URL
+      input#imageUrl-input.form-control(type='text', name='imageUrl', required, ng-model='item.imageUrl') 
+      label(for='tags') Tags (comma separated)
+      input#tags-input.form-control(type='text', name='tags', ng-model='item.tags')
+      button.btn.btn-default(type='submit', ng-click='submit(item)') Submit
+.col-xs-5
