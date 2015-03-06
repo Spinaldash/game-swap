@@ -2,6 +2,8 @@
 
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
+
+// var mailgun = require('../config/mailgun');
 var User;
 
 var userSchema = mongoose.Schema({
@@ -10,6 +12,10 @@ var userSchema = mongoose.Schema({
   email: {type: String, required: true},
   createdAt: {type: Date, default: Date.now, required: true}
 });
+
+// userSchema.post('save', function(user) {
+//   mailgun.signupEmail(user);
+// });
 
 userSchema.statics.register = function(o, cb) {
   User.findOne({email:o.email}, function(err, user) {
