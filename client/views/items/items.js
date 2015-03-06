@@ -4,9 +4,9 @@ angular.module('game-swap')
   .controller('ItemsCtrl', ['$scope', '$rootScope', '$state', 'Item', function($scope, $rootScope, $state, Item) {
 
     if($state.current.name === 'items.show') {
-
-
-
+      Item.showItem().then(function(response) {
+        $scope.item = response.data;
+      });
     }
 
     // if($state.current.name === 'items.new') {

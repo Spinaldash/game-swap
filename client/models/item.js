@@ -8,6 +8,8 @@ angular.module('game-swap')
     function showInventory() {
       return $http.get('/users/' + $rootScope.userId);
     }
-
-    return {create:create, showInventory:showInventory};
+    function showItem(itemId) {
+      return $http.get('/items/' + itemId);
+    }
+    return {create:create, showInventory:showInventory, showItem:showItem};
   }]);
