@@ -3,19 +3,22 @@
   .row
     .col-xs-1
     .col-xs-4.col-sm-3.col-md-2
-      h2 {{item.name}}
       a(ui-sref='items.show({itemId:item._id})')
         img.img-thumbnail(ng-src='{{item.imageUrl}}')
-      div.lead {{item.name}}
+      h2.lead {{item.name}}
       div System: {{item.system}}
       div Year: {{item.year}}
-      div Owned by: ITEM.USERNAME {{userName}}
-      div(ng-repeat: tag in item.tags)  
-        span Tags: {{tag}}
-    .col-xs-7.col-sm-6.col-md-9.background2.rounded
+      div Owned by: {{userName}}
+      div(ng-show='item.tags.length')
+        span Tags:  
+        span(ng-repeat='tag in item.tags') {{' ' + tag}}
+    .col-xs-7.col-sm-6.background2.rounded
       hr
       .pageheader Control Panel
       hr
+      form
+        .form-group
+        .pageheader 
       form
         .form-group
         .pageheader Offer a Trade:
@@ -25,4 +28,4 @@
             select#item1-select.form-control(name='item1', ng-options='item._id as item.name for item in myItems', ng-model='item1')
           .col-xs-6
             button.btn.btn-primary(type='submit', ng-click='submit(item1)') Offer Trade
-        hr
+      hr    
