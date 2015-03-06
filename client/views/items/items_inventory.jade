@@ -1,2 +1,8 @@
 h1 Inventory
-//- (ng-repeat='item in it
+.container-fluid
+  .row
+    .col-xs-4(ng-repeat='item in items')
+      .header {{item.name}}
+      a(ui-sref='items.show({itemId:item._id})')
+        img.img-thumbnail(ng-src='{{item.imageUrl}}')
+      
