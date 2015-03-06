@@ -19,8 +19,8 @@
       form
         .form-group(ng-show='userId === item.userId') 
           .pageheader Trade
-          button.btn.btn-success(type='submit', ng-click='toggleCanSwap', ng-show='item.canSwap') Can Trade 
-          button.btn.btn-danger(type='submit', ng-click='toggleCanSwap', ng-hide='item.canSwap') Can't Trade 
+          button.btn.btn-success(type='submit', ng-click='toggleCanSwap()', ng-show='item.canSwap') Can Trade 
+          button.btn.btn-danger(type='submit', ng-click='toggleCanSwap()', ng-hide='item.canSwap') Can't Trade 
         .form-group(ng-hide='userId === item.userId') 
           .pageheader Trade
           button.btn.btn-success.disabled(type='submit', ng-show='item.canSwap') Can Trade 
