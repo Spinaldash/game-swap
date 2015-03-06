@@ -1,17 +1,54 @@
 [
   {
       "_id" : {"$oid":"0000000000000000000000a1"},
-      "title" : "Get ring to Mount Doom",
       "userId" : {"$oid":"000000000000000000000001"},
-      "isCompleted" : false,
-      "tags" : [
-          "ring",
-          "epic",
-          "unique"
-      ],
-      "priority" : "low",
+      "name" : "Tetris",
+      "year" : 1985,
+      "system" : "Gameboy",
+      "imageUrl" : "http://tetris.com",
+      "tags" : ["Puzzle","tetronimos","2d"],
+      "canSwap" : true,
+      "isPending" : false,
       "createdAt" : {"$date": 1424828111020},
-      "dueDate" : {"$date": 1424828111010},
       "__v" : 0
   },
+  {
+      "_id" : {"$oid":"0000000000000000000000a2"},
+      "userId" : {"$oid":"000000000000000000000002"},
+      "name" : "Megaman",
+      "year" : 1986,
+      "system" : "Gameboy",
+      "imageUrl" : "http://megaman.org",
+      "tags" : ["Platformer","robots","2d"],
+      "canSwap" : true,
+      "isPending" : false,
+      "createdAt" : {"$date": 1424828111024},
+      "__v" : 0
+  },
+  {
+      "_id" : {"$oid":"0000000000000000000000a3"},
+      "userId" : {"$oid":"000000000000000000000001"},
+      "name" : "Pac Man",
+      "year" : 1983,
+      "system" : "Gameboy",
+      "imageUrl" : "http://pacman.co.nz",
+      "tags" : ["Puzzle","adventure","ghosts"],
+      "canSwap" : false,
+      "isPending" : false,
+      "createdAt" : {"$date": 1424828111020},
+      "__v" : 0
+  },
+  {
+      "_id" : {"$oid":"0000000000000000000000a4"},
+      "userId" : {"$oid":"000000000000000000000002"},
+      "name" : "Halo",
+      "year" : 2001,
+      "system" : "Xbox",
+      "imageUrl" : "http://halo.edu",
+      "tags" : ["FPS","covenant","sticky kill"],
+      "canSwap" : false,
+      "isPending" : false,
+      "createdAt" : {"$date": 1424828111024},
+      "__v" : 0
+  }
 ]

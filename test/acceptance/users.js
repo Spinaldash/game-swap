@@ -11,6 +11,7 @@ var beforeEach = lab.beforeEach;
 var server = require('../../server/index');
 var cp = require('child_process');
 var dbname = process.env.MONGO_URL.split('/')[3];
+var cookie;
 
 describe('users route', function() {
   beforeEach(function(done) {
@@ -96,21 +97,24 @@ describe('users route', function() {
       });
     });
   });
-  describe('delete /logout', function() {
-    var options = {
-      method: 'post',
-      url:'/authenticate',
-      payload:{
-        userName:'BilboBaggins',
-        password: '123'
-      }
-    };
-    server.inject(options, function(response) {
-      cookie = response.headers['set-cookie'][0].match(/snickerdoodle=[^;]+/)[0];
-      it('should logout a user', function(done) {
+  describe('logout', function() {
+    it('should log you out', function(done) {
+      var options = {
+        method: 'post',
+        url:'/authenticate',
+        payload:{
+          userName:'BilboBaggins',
+          password: '123'
+        }
+      };
+      server.inject(options, function(response) {
+        cookie = response.headers['set-cookie'][0].match(/peanutbutter=[^;]+/)[0];
         var options = {
           method: 'delete',
-          url:'/logout'
+          url:'/logout',
+          headers: {
+            cookie: cookie  
+          }
         };
         server.inject(options, function(response) {
           expect(response.statusCode).to.equal(200);

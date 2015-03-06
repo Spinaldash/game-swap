@@ -1,0 +1,12 @@
+[
+  {
+    "_id" : {"$oid":"000000000000000000000a01"},
+    "item1" : {"$oid":"0000000000000000000000a1"},
+    "item2" : {"$oid":"0000000000000000000000a2"},
+    "createdAt" : {"$date": 1424828111020},
+    "completedAt" : null,
+    "isCompleted" : false,
+    "success" : false,
+    "__v" : 0
+  }
+]
