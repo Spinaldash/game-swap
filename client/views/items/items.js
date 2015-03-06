@@ -20,9 +20,8 @@ angular.module('game-swap')
     // }
 
     if($state.current.name === 'items.index') {
+      Item
 
-
-      
     }
 
     if($state.current.name === 'items.inventory') {

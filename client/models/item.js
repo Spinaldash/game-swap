@@ -11,5 +11,8 @@ angular.module('game-swap')
     function showItem(itemId) {
       return $http.get('/items/' + itemId);
     }
+    function showIndex() {
+      return $http.get('/items')
+    }
     return {create:create, showInventory:showInventory, showItem:showItem};
   }]);
