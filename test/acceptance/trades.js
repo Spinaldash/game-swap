@@ -47,10 +47,25 @@ describe('trade route', function() {
       };
       server.inject(options, function(response) {
         Trade.find({item1:'0000000000000000000000a1'}, function(err, trade) {
-          console.log('TRADE ACCEPTANCE trade:',trade);
           expect(response.statusCode).to.equal(200);
           done();
         });
+      });
+    });
+  });
+  describe('get /trades', function() {
+    it('should display a users open trades', function(done) {
+      var options = {
+        method: 'get',
+        url:'/trades',
+        headers: {
+          cookie: cookie
+        }
+      };
+      server.inject(options, function(response) {
+        expect(response.result.length).to.equal(2);
+        expect(response.statusCode).to.equal(200);
+        done();
       });
     });
   });

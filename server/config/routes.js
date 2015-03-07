@@ -15,6 +15,7 @@ module.exports = [
   {method: 'get', path: '/items/{itemId}', config: require('../routes/items/show')},      // Show one item
   {method: 'post', path: '/items/toggleSwap', config: require('../routes/items/toggleSwap')},      // Toggle Swappiness
 
+  {method: 'get', path: '/trades', config: require('../routes/trades/index')},
   {method: 'post', path: '/trades', config: require('../routes/trades/create')}
 
 ];
