@@ -27,18 +27,26 @@ var tradeSchema = mongoose.Schema({
 // });
 
 tradeSchema.methods.tradeYes = function(cb) {
+  var trade = this;
   this.completedAt = new Date();
   this.isCompleted = this.isSuccess = true;
   var item2id = this.item2;
   Item.findById(this.item1, function(err, item1) {
     Item.findById(item2id, function(err, item2) {
       item1.isPending = item2.isPending = false;
-      item1.swap(item2, cb);
+      item1.swap(item2, function() {
+        item1.save(function() {
+          item2.save(function() {
+            trade.save(cb);
+          });
+        });
+      });
     });
   });
 };
 
 tradeSchema.methods.tradeNo = function(cb) {
+  var trade = this;
   this.completedAt = new Date();
   this.isCompleted = true;
   this.isSuccess = false;
@@ -46,13 +54,13 @@ tradeSchema.methods.tradeNo = function(cb) {
   Item.findById(this.item1, function(err, item1) {
     Item.findById(item2id, function(err, item2) {
       item1.isPending = item2.isPending = false;
-      item2.save(function() {
-        item1.save(function() {
-          cb();
+      item1.save(function() {
+        item2.save(function() {
+          trade.save(cb);
         });
       });
     });
   });
 };
 
-module.exports = mongoose.model('trade', tradeSchema);
+module.exports = mongoose.model('Trade', tradeSchema);

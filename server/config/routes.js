@@ -17,7 +17,7 @@ module.exports = [
 
   {method: 'get', path: '/trades', config: require('../routes/trades/index')},
   {method: 'post', path: '/trades', config: require('../routes/trades/create')},
-  {method: 'post', path: '/trades/approve', config: require('../routes/trades/approve')}
-  // {method: 'post', path: '/trades/decline', config: require('../routes/trades/decline')}
+  {method: 'post', path: '/trades/approve', config: require('../routes/trades/approve')},
+  {method: 'post', path: '/trades/decline', config: require('../routes/trades/decline')}
 
 ];

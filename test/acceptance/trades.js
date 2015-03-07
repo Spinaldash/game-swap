@@ -82,8 +82,34 @@ describe('trade route', function() {
         }
       };
       server.inject(options, function(response) {
-        expect(response.statusCode).to.equal(200);
-        done();
+        Trade.findById('000000000000000000000a01', function(err, trade) {
+          expect(trade.isSuccess).to.be.ok;
+          expect(trade.isCompleted).to.be.ok;
+          expect(response.statusCode).to.equal(200);
+          done();
+        });
+      });
+    });
+  });
+  describe('post /trades/decline', function() {
+    it('should decline a proposed trade', function(done) {
+      var options = {
+        method: 'post',
+        url:'/trades/decline',
+        payload: {
+          tradeId: '000000000000000000000a01'
+        },
+        headers: {
+          cookie: cookie
+        }
+      };
+      server.inject(options, function(response) {
+        Trade.findById('000000000000000000000a01', function(err, trade) {
+          expect(trade.isSuccess).to.not.be.ok;
+          expect(trade.isCompleted).to.be.ok;
+          expect(response.statusCode).to.equal(200);
+          done();
+        });
       });
     });
   });
