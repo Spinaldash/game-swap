@@ -11,7 +11,6 @@ var signupText = "Hi " + user.userName +
       "!\n\nYou've signed up to Game-Swap!  Game-Swap is an easy way to take games you own, and trade them for games you want.\n\n" + 
       "Log in and start trading now!\n\n--The Game-Swap Team";
 
-
 var emailCB = function(err) {
   console.log('emailCB Called.');
   if(err) {

@@ -26,12 +26,21 @@
           button.btn.btn-success.disabled(type='submit', ng-show='item.canSwap') Can Trade 
           button.btn.btn-danger.disabled(type='submit', ng-hide='item.canSwap') Can't Trade 
       form(ng-hide='userId === item.userId || item.isPending') 
-        .form-group
-        .pageheader Offer a Trade:
-        label(for='item1') Your Item  
-        .row
-          .col-xs-6
-            select#item1-select.form-control(name='item1', ng-options='item._id as item.name for item in myItems', ng-model='item1')
-          .col-xs-6
-            button.btn.btn-primary(type='submit', ng-click='submit(item1)') Offer Trade
-        hr    
+        .form-group(ng-show='myItems.length') 
+          .pageheader Offer a Trade:
+          label(for='item1') Your Item: 
+          .row
+            .col-xs-6
+              select#item1-select.form-control(name='item1', ng-options='item._id as item.name for item in myItems', ng-model='item1')
+            .col-xs-6
+              button.btn.btn-primary(type='submit', ng-click='submit(item1)') Offer Trade
+        .form-group(ng-hide='myItems.length')
+          .pageheader Offer a Trade:
+          label(for='item1') Your Item: 
+          .row
+            .col-xs-6
+              select#item1-select.form-control(name='item1', disabled='true')
+                option(selected) No tradable games!
+            .col-xs-6
+              button.btn.btn-primary.disabled(type='submit', ng-click='submit(item1)') Offer Trade
+        hr       

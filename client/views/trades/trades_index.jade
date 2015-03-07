@@ -14,9 +14,12 @@
         tbody
           tr(ng-repeat='trade in trades | filter : item2filter')
             th {{$index}}
-            td {{trade.item1.name}}
-            td {{trade.item2.name}}
-            td
+            td 
+              a(ui-sref='items.show({itemId:trade.item1._id})')
+                span {{trade.item1.name}}
+            td 
+              a(ui-sref='items.show({itemId:trade.item2._id})')
+                span {{trade.item2.name}}            td
               span(am-time-ago='trade.createdAt')
             td 
               span.btn.btn-danger(ng-click='declineTrade(trade)') Decline
@@ -34,8 +37,12 @@
         tbody
           tr(ng-repeat='trade in trades | filter : item1filter')
             th {{$index}}
-            td {{trade.item1.name}}
-            td {{trade.item2.name}}
+            td 
+              a(ui-sref='items.show({itemId:trade.item1._id})')
+                span {{trade.item1.name}}
+            td 
+              a(ui-sref='items.show({itemId:trade.item2._id})')
+                span {{trade.item2.name}}
             td
               span(am-time-ago='trade.createdAt')
             td 
@@ -53,7 +60,11 @@
         tbody
           tr(ng-repeat='trade in trades | filter : historyfilter')
             th {{$index}}
-            td {{trade.item1.name}}
-            td {{trade.item2.name}}
+            td 
+              a(ui-sref='items.show({itemId:trade.item1._id})')
+                span {{trade.item1.name}}
+            td 
+              a(ui-sref='items.show({itemId:trade.item2._id})')
+                span {{trade.item2.name}}
             td  
               span(am-time-ago='trade.completedAt')
