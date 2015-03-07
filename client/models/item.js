@@ -17,8 +17,8 @@ angular.module('game-swap')
     function getMySwaps() {
       return $http.get('/items/swaps');
     }
-    function trade(item1, item2) {
-      return $http.post('/trades', {item1:item1, item2:item2});
+    function trade(item1, item2, user1, user2) {
+      return $http.post('/trades', {item1:item1, item2:item2, user1:user1, user2:user2});
     }
     function toggleCanSwap() {
       return $http.post('/items/toggleSwap', {itemId: $state.params.itemId});

@@ -17,7 +17,7 @@ angular.module('game-swap')
         });
       };
       $scope.submit = function(proposedItem) {
-        Item.trade(proposedItem, $state.params.itemId).then(function() {
+        Item.trade(proposedItem, $state.params.itemId, $rootScope.userId, $scope.item.userId).then(function() {
           console.log('Trade created!');
         }, function() {
           console.log('Trade creation failure.');
