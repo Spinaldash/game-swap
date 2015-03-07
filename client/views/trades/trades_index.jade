@@ -7,26 +7,8 @@
         thead
           tr
             th #
-            th Item 1
-            th Item 2
-            th Created
-            th Options     
-        tbody
-          tr(ng-repeat='trade in trades | filter : item1filter')
-            th {{$index}}
-            td {{trade.item1.name}}
-            td {{trade.item2.name}}
-            td
-              span(am-time-ago='trade.createdAt')
-            td Options
-    .col-xs-12
-      table.table.table-striped
-        caption my Offers to Others
-        thead
-          tr
-            th #
-            th Item 1
-            th Item 2
+            th They Offered
+            th For my
             th Created
             th Options     
         tbody
@@ -36,7 +18,29 @@
             td {{trade.item2.name}}
             td
               span(am-time-ago='trade.createdAt')
-            td Le Optiones
+            td 
+              span.btn.btn-danger(ng-click='declineTrade(trade)') Decline
+              span.btn.btn-success(ng-click='acceptTrade(trade)') Accept
+    .col-xs-12
+      table.table.table-striped
+        caption my Offers to Others
+        thead
+          tr
+            th #
+            th I offered
+            th For their
+            th Created
+            th Options     
+        tbody
+          tr(ng-repeat='trade in trades | filter : item1filter')
+            th {{$index}}
+            td {{trade.item1.name}}
+            td {{trade.item2.name}}
+            td
+              span(am-time-ago='trade.createdAt')
+            td 
+              span.btn.btn-danger(ng-click='declineTrade(trade)') Cancel
+              
     .col-xs-12
       table.table.table-striped
         caption Trade history

@@ -11,7 +11,7 @@
       div Owned by: {{userName}}
       div(ng-show='item.tags.length')
         span Tags:  
-        span(ng-repeat='tag in item.tags') {{' ' + tag}}
+        span.label-margin.label.label-info(ng-repeat='tag in item.tags') {{tag}}
     .col-xs-7.col-sm-6.background2.rounded
       hr
       .pageheader Control Panel

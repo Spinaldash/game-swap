@@ -6,6 +6,22 @@ angular.module('game-swap')
       $scope.trades = response.data;
     });
 
+    $scope.declineTrade = function(trade) {
+      Trade.tradeNo(trade._id).then(function() {
+        Trade.show().then(function(response) {
+          $scope.trades = response.data;
+        });
+      });
+    };
+
+    $scope.acceptTrade = function(trade) {
+      Trade.tradeYes(trade._id).then(function() {
+        Trade.show().then(function(response) {
+          $scope.trades = response.data;
+        });
+      });
+    };
+
     $scope.item1filter = function(trade) {
       if(trade.user1._id === $rootScope.userId && !trade.isCompleted) {
         return true;

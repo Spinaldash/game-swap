@@ -6,12 +6,12 @@ angular.module('game-swap')
       return $http.get('/trades');
     }
     function tradeYes(tradeId) {
-      return $http.post('/trades/approve', tradeId);
+      return $http.post('/trades/approve', {tradeId:tradeId});
     }
     function tradeNo(tradeId) {
-      return $http.post('/trades/decline', tradeId);
+      return $http.post('/trades/decline', {tradeId:tradeId});
     }
-    
+
     return {
       show:show,
       tradeYes:tradeYes,
