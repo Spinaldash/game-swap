@@ -1,6 +1,42 @@
 .container-fluid
   .row
-    .col-xs-6
+    .col-xs-12
+      table.table.table-striped
+        caption Offers to Me
+        thead
+          tr
+            th #
+            th Item 1
+            th Item 2
+            th Created
+            th Options     
+        tbody
+          tr(ng-repeat='trade in trades track by $index | filter : {user1:userId, isComplete:false}')
+            th {{$index}}
+            td {{trade.item1.name}}
+            td {{trade.item2.name}}
+            td
+              span(am-time-ago='trade.createdAt')
+            td Options
+      .col-xs-12
+      table.table.table-striped
+        caption my Offers to Others
+        thead
+          tr
+            th #
+            th Item 1
+            th Item 2
+            th Created
+            th Options     
+        tbody
+          tr(ng-repeat='trade in trades track by $index | filter : {user2:userId}')
+            th {{$index}}
+            td {{trade.item1.name}}
+            td {{trade.item2.name}}
+            td
+              span(am-time-ago='trade.createdAt')
+            td Le Optiones
+      .col-xs-12
       table.table.table-striped
         caption Trade history
         thead
@@ -10,26 +46,9 @@
             th Item2
             th Date Completed       
         tbody
-          tr(ng-repeat='')
+          tr(ng-repeat='trade in trades track by $index | filter : {isComplete:true}')
             th {{$index}}
-            td
-            td
-            td
-    .col-xs-6
-      table.table.table-striped
-        caption Open Trades
-        thead
-          tr
-            th #
-            th Item 1
-            th Item 2
-            th Created At
-            th Options     
-        tbody
-          tr(ng-repeat='')
-            th {{$index}}
-            td
-            td
-            td
-            td
-      
+            td {{trade.item1.name}}
+            td {{trade.item2.name}}
+            td  
+              span(am-time-ago='trade.completedAt')

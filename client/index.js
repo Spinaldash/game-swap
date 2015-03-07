@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('game-swap', ['ui.router'])
+angular.module('game-swap', ['ui.router', 'angularMoment'])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider
