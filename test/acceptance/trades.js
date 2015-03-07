@@ -69,4 +69,22 @@ describe('trade route', function() {
       });
     });
   });
+  describe('post /trades/approve', function() {
+    it('should approve a proposed trade', function(done) {
+      var options = {
+        method: 'post',
+        url:'/trades/approve',
+        payload: {
+          tradeId: '000000000000000000000a01'
+        },
+        headers: {
+          cookie: cookie
+        }
+      };
+      server.inject(options, function(response) {
+        expect(response.statusCode).to.equal(200);
+        done();
+      });
+    });
+  });
 });
