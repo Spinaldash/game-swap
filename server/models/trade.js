@@ -14,18 +14,6 @@ var tradeSchema = mongoose.Schema({
   isSuccess: {type: Boolean, default: false, required: true}
 });
 
-// tradeSchema.post('save', function(trade) {
-//   // var trade = this;
-//   var item1 = this.item1;
-//   var item2 = this.item2;
-//   Item.findById(item1).populate('userId').exec(function(err, item1a) {
-//     Item.findById(item2).populate('userId').exec(function(err, item2a) {
-//       trade.user1 = item1a.userId.userName;
-//       trade.user2 = item2a.userId.userName;
-//     });
-//   });
-// });
-
 tradeSchema.methods.tradeYes = function(cb) {
   var trade = this;
   this.completedAt = new Date();

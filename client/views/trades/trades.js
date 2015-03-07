@@ -5,4 +5,28 @@ angular.module('game-swap')
     Trade.show().then(function(response) {
       $scope.trades = response.data;
     });
+
+    $scope.item1filter = function(trade) {
+      if(trade.user1._id === $rootScope.userId && !trade.isCompleted) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    $scope.item2filter = function(trade) {
+      if(trade.user2._id === $rootScope.userId && !trade.isCompleted) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    $scope.historyfilter = function(trade) {
+      if(((trade.user2._id === $rootScope.userId) || (trade.user2._id === $rootScope.userId)) && trade.isSuccess) {
+        return true;
+      } else {
+        return false;
+      }
+    };
   }]);

@@ -1,7 +1,6 @@
 'use strict';
 
 var Trade = require('../../models/trade');
-var Item = require('../../models/item');
 
 module.exports = {
   handler: function(request, reply) {

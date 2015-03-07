@@ -18,6 +18,7 @@ angular.module('game-swap')
       };
       $scope.submit = function(proposedItem) {
         Item.trade(proposedItem, $state.params.itemId, $rootScope.userId, $scope.item.userId).then(function() {
+          $scope.item.isPending = true;
           console.log('Trade created!');
         }, function() {
           console.log('Trade creation failure.');

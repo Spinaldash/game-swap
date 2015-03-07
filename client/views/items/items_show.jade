@@ -25,7 +25,7 @@
           .pageheader Trade
           button.btn.btn-success.disabled(type='submit', ng-show='item.canSwap') Can Trade 
           button.btn.btn-danger.disabled(type='submit', ng-hide='item.canSwap') Can't Trade 
-      form(ng-hide='userId === item.userId') 
+      form(ng-hide='userId === item.userId || item.isPending') 
         .form-group
         .pageheader Offer a Trade:
         label(for='item1') Your Item  

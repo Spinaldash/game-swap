@@ -1,6 +1,7 @@
 .container-fluid
   .row
     .col-xs-12
+
       table.table.table-striped
         caption Offers to Me
         thead
@@ -11,7 +12,7 @@
             th Created
             th Options     
         tbody
-          tr(ng-repeat='trade in trades track by $index | filter : {user1:userId, isComplete:false}')
+          tr(ng-repeat='trade in trades | filter : item1filter')
             th {{$index}}
             td {{trade.item1.name}}
             td {{trade.item2.name}}
@@ -29,7 +30,7 @@
             th Created
             th Options     
         tbody
-          tr(ng-repeat='trade in trades track by $index | filter : {user2:userId}')
+          tr(ng-repeat='trade in trades | filter : item2filter')
             th {{$index}}
             td {{trade.item1.name}}
             td {{trade.item2.name}}
@@ -46,7 +47,7 @@
             th Item2
             th Date Completed       
         tbody
-          tr(ng-repeat='trade in trades track by $index | filter : {isComplete:true}')
+          tr(ng-repeat='trade in trades | filter : historyfilter')
             th {{$index}}
             td {{trade.item1.name}}
             td {{trade.item2.name}}
