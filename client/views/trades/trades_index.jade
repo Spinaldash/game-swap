@@ -1,0 +1,35 @@
+.container-fluid
+  .row
+    .col-xs-6
+      table.table.table-striped
+        caption Trade history
+        thead
+          tr
+            th #
+            th Item1 
+            th Item2
+            th Date Completed       
+        tbody
+          tr(ng-repeat='')
+            th {{$index}}
+            td
+            td
+            td
+    .col-xs-6
+      table.table.table-striped
+        caption Open Trades
+        thead
+          tr
+            th #
+            th Item 1
+            th Item 2
+            th Created At
+            th Options     
+        tbody
+          tr(ng-repeat='')
+            th {{$index}}
+            td
+            td
+            td
+            td
+      
