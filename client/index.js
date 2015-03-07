@@ -8,7 +8,7 @@ angular.module('game-swap', ['ui.router'])
       .state('register', {url:'/register', templateUrl:'/views/users/users.html', controller:'UsersCtrl'})
       .state('login', {url:'/login', templateUrl:'/views/users/users.html', controller:'UsersCtrl'})
 
-      .state('trades', {url:'/trades', templateUrl:'/views/trades/index.html', controller:'TradesCtrl'})
+      .state('trades', {url:'/trades', templateUrl:'/views/trades/trades_index.html', controller:'TradesCtrl'})
 
       .state('items', {url:'/items', templateUrl:'/views/items/items.html', abstract:true})
       .state('items.new', {url:'/new', templateUrl:'/views/items/items_new.html', controller:'ItemsCtrl'})
