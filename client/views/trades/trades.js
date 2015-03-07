@@ -39,7 +39,7 @@ angular.module('game-swap')
     };
 
     $scope.historyfilter = function(trade) {
-      if(((trade.user2._id === $rootScope.userId) || (trade.user2._id === $rootScope.userId)) && trade.isSuccess) {
+      if(((trade.user1._id === $rootScope.userId) || (trade.user2._id === $rootScope.userId)) && trade.isSuccess) {
         return true;
       } else {
         return false;
