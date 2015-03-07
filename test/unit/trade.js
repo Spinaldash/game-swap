@@ -12,7 +12,6 @@ var it = lab.it;
 var cp = require('child_process');
 var dbname = process.env.MONGO_URL.split('/')[3];
 var beforeEach = lab.beforeEach;
-require('../../server/index');
 
 describe('Trade', function() {
 
@@ -23,14 +22,14 @@ describe('Trade', function() {
   });
 
   describe('Trade', function() {
-    it('tradeYes should complete a trade.', function(done) {
+    it('approveTrade should complete a trade.', function(done) {
       Trade.findById("000000000000000000000a01", function(err, trade) {
         Item.findById(trade.item1, function(err, item1) {
           Item.findById(trade.item2, function(err, item2) {
             var item1id = item1.userId;
             var item2id = item2.userId;
 
-            trade.tradeYes(function(){
+            trade.approveTrade(function(){
               Item.findById(trade.item1, function(err, item1a) {
                 Item.findById(trade.item2, function(err, item2a) {
                   expect(trade.isCompleted).to.be.ok;
@@ -52,14 +51,14 @@ describe('Trade', function() {
         });
       });
     });
-    it('tradeNo should reject a trade.', function(done) {
+    it('declineTrade should reject a trade.', function(done) {
       Trade.findById("000000000000000000000a01", function(err, trade) {
         Item.findById(trade.item1, function(err, item1) {
           Item.findById(trade.item2, function(err, item2) {
             var item1id = item1.userId;
             var item2id = item2.userId;
 
-            trade.tradeNo(function(){
+            trade.declineTrade(function(){
               Item.findById(trade.item1, function(err, item1a) {
                 Item.findById(trade.item2, function(err, item2a) {
                   expect(trade.isCompleted).to.be.ok;

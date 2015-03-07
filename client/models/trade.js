@@ -5,16 +5,16 @@ angular.module('game-swap')
     function show() {
       return $http.get('/trades');
     }
-    function tradeYes(tradeId) {
+    function approveTrade(tradeId) {
       return $http.post('/trades/approve', {tradeId:tradeId});
     }
-    function tradeNo(tradeId) {
+    function declineTrade(tradeId) {
       return $http.post('/trades/decline', {tradeId:tradeId});
     }
 
     return {
       show:show,
-      tradeYes:tradeYes,
-      tradeNo:tradeNo
+      approveTrade:approveTrade,
+      declineTrade:declineTrade
     };
   }]);

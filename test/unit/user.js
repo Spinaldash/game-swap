@@ -8,7 +8,6 @@ var lab = exports.lab = Lab.script();
 var describe = lab.describe;
 var it = lab.it;
 var beforeEach = lab.beforeEach;
-require('../../server/index');
 
 describe('User', function() {
   beforeEach(function(done) {

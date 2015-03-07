@@ -14,7 +14,7 @@ var tradeSchema = mongoose.Schema({
   isSuccess: {type: Boolean, default: false, required: true}
 });
 
-tradeSchema.methods.tradeYes = function(cb) {
+tradeSchema.methods.approveTrade = function(cb) {
   var trade = this;
   this.completedAt = new Date();
   this.isCompleted = this.isSuccess = true;
@@ -33,7 +33,7 @@ tradeSchema.methods.tradeYes = function(cb) {
   });
 };
 
-tradeSchema.methods.tradeNo = function(cb) {
+tradeSchema.methods.declineTrade = function(cb) {
   var trade = this;
   this.completedAt = new Date();
   this.isCompleted = true;

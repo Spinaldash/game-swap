@@ -7,15 +7,15 @@ angular.module('game-swap')
     });
 
     $scope.declineTrade = function(trade) {
-      Trade.tradeNo(trade._id).then(function() {
+      Trade.declineTrade(trade._id).then(function() {
         Trade.show().then(function(response) {
           $scope.trades = response.data;
         });
       });
     };
 
-    $scope.acceptTrade = function(trade) {
-      Trade.tradeYes(trade._id).then(function() {
+    $scope.approveTrade = function(trade) {
+      Trade.approveTrade(trade._id).then(function() {
         Trade.show().then(function(response) {
           $scope.trades = response.data;
         });
@@ -39,7 +39,7 @@ angular.module('game-swap')
     };
 
     $scope.historyfilter = function(trade) {
-      if(((trade.user2._id === $rootScope.userId) || (trade.user2._id === $rootScope.userId)) && trade.isSuccess) {
+      if(((trade.user1._id === $rootScope.userId) || (trade.user2._id === $rootScope.userId)) && trade.isSuccess) {
         return true;
       } else {
         return false;

@@ -12,7 +12,6 @@ var it = lab.it;
 var cp = require('child_process');
 var dbname = process.env.MONGO_URL.split('/')[3];
 var beforeEach = lab.beforeEach;
-require('../../server/index');
 
 describe('Item', function() {
 
