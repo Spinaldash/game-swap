@@ -16,3 +16,65 @@ hr {
 .label-margin {
   margin-right: .5em;
 }
+
+.table-style {
+  table-layout: fixed;
+}
+
+table.table.table-striped.table-style th:nth-child(1) {
+  width: 1.5em;
+}
+
+table.table.table-striped.table-style th:nth-child(2) {
+  width: 17%;
+}
+
+table.table.table-striped.table-style th:nth-child(3) {
+  width: 17%;
+}
+
+table.table.table-striped.table-style th:nth-child(4) {
+  width: 10%;
+}
+
+table.table.table-striped.table-style th:nth-child(5) {
+  width: 25%;
+}
+
+@media (max-width: 600px) {
+  .smallDissapear {
+    display:none
+  }
+
+  table.table.table-striped.table-style th:nth-child(1) {
+    width: 1.5em;
+  }
+
+  table.table.table-striped.table-style th:nth-child(2) {
+    width: 17%;
+  }
+
+  table.table.table-striped.table-style th:nth-child(3) {
+    width: 17%;
+  }
+
+  table.table.table-striped.table-style th:nth-child(4) {
+    width: 10%;
+  }
+
+  table.table.table-striped.table-style th:nth-child(5) {
+    width: 25%;
+  }
+}
+
+video {
+ position: fixed;
+ right: 0;
+ bottom: 0;
+ min-width: 100%;
+ min-height: 100%;
+ width: auto;
+ height: auto;
+ z-index: -100;
+ background-size: cover;
+}
