@@ -1,70 +1,72 @@
 .container-fluid
   .row
-    .col-xs-12
-
-      table.table.table-striped
-        caption Offers to Me
-        thead
-          tr
-            th #
-            th They Offered
-            th For my
-            th Created
-            th Options     
-        tbody
-          tr(ng-repeat='trade in trades | filter : item2filter')
-            th {{$index}}
-            td 
-              a(ui-sref='items.show({itemId:trade.item1._id})')
-                span {{trade.item1.name}}
-            td 
-              a(ui-sref='items.show({itemId:trade.item2._id})')
-                span {{trade.item2.name}}            td
-              span(am-time-ago='trade.createdAt')
-            td 
-              span.btn.btn-danger(ng-click='declineTrade(trade)') Decline
-              span.btn.btn-success(ng-click='approveTrade(trade)') Accept
-    .col-xs-12
-      table.table.table-striped
-        caption my Offers to Others
-        thead
-          tr
-            th #
-            th I offered
-            th For their
-            th Created
-            th Options     
-        tbody
-          tr(ng-repeat='trade in trades | filter : item1filter')
-            th {{$index}}
-            td 
-              a(ui-sref='items.show({itemId:trade.item1._id})')
-                span {{trade.item1.name}}
-            td 
-              a(ui-sref='items.show({itemId:trade.item2._id})')
-                span {{trade.item2.name}}
-            td
-              span(am-time-ago='trade.createdAt')
-            td 
-              span.btn.btn-danger(ng-click='declineTrade(trade)') Cancel
-              
-    .col-xs-12
-      table.table.table-striped
-        caption Trade history
-        thead
-          tr
-            th #
-            th Item1 
-            th Item2
-            th Date Completed       
-        tbody
-          tr(ng-repeat='trade in trades | filter : historyfilter')
-            th {{$index}}
-            td 
-              a(ui-sref='items.show({itemId:trade.item1._id})')
-                span {{trade.item1.name}}
-            td 
-              a(ui-sref='items.show({itemId:trade.item2._id})')
-                span {{trade.item2.name}}
-            td  
-              span(am-time-ago='trade.completedAt')
+    .col-md-6.col-sm-12
+      .table-responsive
+        table.table.table-striped.table-style
+          caption Offers to Me
+          thead
+            tr
+              th #
+              th They Offered
+              th For my
+              th.smallDissapear Created
+              th Options     
+          tbody
+            tr(ng-repeat='trade in trades | filter : item2filter')
+              th {{$index}}
+              td 
+                a(ui-sref='items.show({itemId:trade.item1._id})')
+                  span {{trade.item1.name}}
+              td 
+                a(ui-sref='items.show({itemId:trade.item2._id})')
+                  span {{trade.item2.name}}
+              td.smallDissapear  
+                span(am-time-ago='trade.createdAt')
+              td 
+                span.btn.btn-danger(ng-click='declineTrade(trade)') Decline
+                span.btn.btn-success(ng-click='approveTrade(trade)') Accept
+    .col-md-6.col-sm-12
+      .table-responsive
+        table.table.table-striped.table-style(ng-show='true')
+          caption my Offers to Others
+          thead
+            tr
+              th #
+              th I offered
+              th For their
+              th.smallDissapear Created
+              th Options     
+          tbody
+            tr(ng-repeat='trade in trades | filter : item1filter')
+              th {{$index}}
+              td 
+                a(ui-sref='items.show({itemId:trade.item1._id})')
+                  span {{trade.item1.name}}
+              td.smallDissapear
+                a(ui-sref='items.show({itemId:trade.item2._id})')
+                  span {{trade.item2.name}}
+              td
+                span(am-time-ago='trade.createdAt')
+              td 
+                span.btn.btn-danger(ng-click='declineTrade(trade)') Cancel
+    .col-md-6.col-sm-12
+      .table-responsive
+        table.table.table-striped.table-style
+          caption Trade history
+          thead
+            tr
+              th #
+              th Item1 
+              th Item2
+              th Date Completed       
+          tbody
+            tr(ng-repeat='trade in trades | filter : historyfilter')
+              th {{$index}}
+              td 
+                a(ui-sref='items.show({itemId:trade.item1._id})')
+                  span {{trade.item1.name}}
+              td 
+                a(ui-sref='items.show({itemId:trade.item2._id})')
+                  span {{trade.item2.name}}
+              td  
+                span(am-time-ago='trade.completedAt')
