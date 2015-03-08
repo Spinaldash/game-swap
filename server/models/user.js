@@ -3,7 +3,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
-var mailgun = require('../config/mailgun');
 var User;
 
 var userSchema = mongoose.Schema({
@@ -13,16 +12,14 @@ var userSchema = mongoose.Schema({
   createdAt: {type: Date, default: Date.now, required: true}
 });
 
-userSchema.post('save', function(user) {
-  // mailgun.signup(user);
-});
-
 userSchema.statics.register = function(o, cb) {
-  User.findOne({email:o.email}, function(err, user) {
-    if (user) { return cb(true); }
-    user = new User(o);
+  User.findOne({email:o.email}, function(err, dbuser) {
+    if (dbuser) { return cb(true); }
+    var user = new User(o);
     user.password = bcrypt.hashSync(o.password, 8);
-    user.save(cb);
+    user.save(function(){
+      cb(null, user);
+    });
   });
 };
 

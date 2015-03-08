@@ -14,6 +14,21 @@ var tradeSchema = mongoose.Schema({
   isSuccess: {type: Boolean, default: false, required: true}
 });
 
+tradeSchema.statics.create = function(trade, cb) {
+  Item.findById(trade.item1, function(err, item1) {
+    Item.findById(trade.item2, function(err, item2) {
+      item1.isPending = item2.isPending = true;
+      item1.save(function() {
+        item2.save(function() {
+          trade.save(function() {
+            cb(trade);
+          });
+        });
+      });
+    });
+  });
+};
+
 tradeSchema.methods.approveTrade = function(cb) {
   var trade = this;
   this.completedAt = new Date();
