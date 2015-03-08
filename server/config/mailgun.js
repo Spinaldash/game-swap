@@ -1,6 +1,7 @@
 /* jshint quotmark: false */
 
 'use strict';
+var mailingEnabled = false;
 
 var Mailgun = require('mailgun').Mailgun;
 var mg = new Mailgun(process.env.MG_KEY);
@@ -50,12 +51,18 @@ var emailCB = function(err) {
 
 module.exports = {
   signup: function(user) {
-    // mg.sendText(sender, user.email, signupSubject, signupText(user.userName), emailCB);
+    if (mailingEnabled) {
+      mg.sendText(sender, user.email, signupSubject, signupText(user.userName), emailCB);
+    }
   },
   tradeOffered: function(populatedTrade) {
-    // mg.sendText(sender, populatedTrade.user2.email, tradeOfferedSubject(populatedTrade), tradeOfferedText(populatedTrade), emailCB);
+    if (mailingEnabled) {
+      mg.sendText(sender, populatedTrade.user2.email, tradeOfferedSubject(populatedTrade), tradeOfferedText(populatedTrade), emailCB);
+    }
   },
   tradeApproved: function(populatedTrade) {
-    // mg.sendText(sender, populatedTrade.user1.email, tradeApprovedSubject(populatedTrade), tradeApprovedText(populatedTrade), emailCB);
+    if (mailingEnabled) {
+      mg.sendText(sender, populatedTrade.user1.email, tradeApprovedSubject(populatedTrade), tradeApprovedText(populatedTrade), emailCB);
+    }
   }
 };
