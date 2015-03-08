@@ -33,7 +33,7 @@ var tradeApprovedText = function(populatedTrade) {
   return "Hi " + populatedTrade.user1.userName + ",\n\n" + 
   populatedTrade.user2.userName + " has accepted your trade!\n\n" +
   "You've traded away " + populatedTrade.item1.name +
-  "in exchange for " + populatedTrade.item1.name +
+  " in exchange for " + populatedTrade.item2.name +
   "!\n\n Your new game is currently not available for swap offers, " +
   "but you can make it available again on its detail page.\n\n" +
   "Thanks for using Game-Swap!" +
