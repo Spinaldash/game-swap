@@ -8,14 +8,14 @@ angular.module('game-swap')
     function showInventory() {
       return $http.get('/users/' + $rootScope.userId);
     }
-    function show(itemId) {
+    function showItem(itemId) {
       return $http.get('/items/' + itemId);
     }
-    function getIndex() {
+    function showIndex() {
       return $http.get('/items');
     }
-    function getMyTradables() {
-      return $http.get('/users/tradables');
+    function getMySwaps() {
+      return $http.get('/items/swaps');
     }
     function trade(item1, item2, user1, user2) {
       return $http.post('/trades', {item1:item1, item2:item2, user1:user1, user2:user2});
@@ -26,9 +26,9 @@ angular.module('game-swap')
     return {
       create:create,
       showInventory:showInventory,
-      show:show,
-      getIndex:getIndex,
-      getMyTradables:getMyTradables,
+      showItem:showItem,
+      showIndex:showIndex,
+      getMySwaps:getMySwaps,
       trade:trade,
       toggleCanSwap:toggleCanSwap
     };

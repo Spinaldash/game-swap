@@ -7,10 +7,10 @@ module.exports = [
   {method: 'post', path: '/authenticate', config: require('../routes/users/authenticate')},
   {method: 'get', path: '/status', config: require('../routes/users/status')},
   {method: 'delete', path: '/logout', config: require('../routes/users/logout')},
-  {method: 'get', path: '/users/tradables', config: require('../routes/users/tradables')},        // Show my tradable items
 
   {method: 'post', path: '/items', config: require('../routes/items/create')},            // New Item
   {method: 'get', path: '/users/{userId}', config: require('../routes/items/inventory')}, // Show My Items
+  {method: 'get', path: '/items/swaps', config: require('../routes/items/swaps')},        // Show My Swappable Items
   {method: 'get', path: '/items', config: require('../routes/items/index')},              // Show other items availble for trade
   {method: 'get', path: '/items/{itemId}', config: require('../routes/items/show')},      // Show one item
   {method: 'post', path: '/items/toggleSwap', config: require('../routes/items/toggleSwap')},      // Toggle Swappiness

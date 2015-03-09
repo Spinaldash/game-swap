@@ -4,12 +4,12 @@ angular.module('game-swap')
   .controller('ItemsCtrl', ['$scope', '$rootScope', '$state', 'Item', function($scope, $rootScope, $state, Item) {
 
     if($state.current.name === 'items.show') {
-      Item.show($state.params.itemId).then(function(response) {
+      Item.showItem($state.params.itemId).then(function(response) {
         $scope.item = response.data.item;
         $scope.userName = response.data.userName;
       });
-      Item.getMyTradables().then(function(response) {
-        $scope.myTradables = response.data;
+      Item.getMySwaps().then(function(response) {
+        $scope.myItems = response.data;
       });
       $scope.toggleCanSwap = function() {
         Item.toggleCanSwap().then(function(response) {
@@ -37,7 +37,7 @@ angular.module('game-swap')
     }
 
     if($state.current.name === 'items.index') {
-      Item.getIndex().then(function(response) {
+      Item.showIndex().then(function(response) {
         $scope.items = response.data;
       });
     }
